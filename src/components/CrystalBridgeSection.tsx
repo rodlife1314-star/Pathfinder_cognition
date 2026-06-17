@@ -162,13 +162,42 @@ Status: WORKLOAD AUTHORIZED & CONTEXT RESOLVED
         </div>
       ) : (
         <div className="p-4 bg-gray-950/60 border border-gray-850 rounded-lg space-y-4">
-          <div className="space-y-1">
+          <div className="space-y-1 pb-2 border-b border-gray-900">
             <h4 className="text-xs font-display font-extrabold text-gray-200 uppercase tracking-wider">
               Gate Dispatch Workload
             </h4>
             <p className="text-[11px] text-gray-400 font-sans leading-relaxed">
               By authorizing this workspace, you declare that you have verified all underlying signals and evidence models, acknowledging authority pairs are correctly matched.
             </p>
+          </div>
+
+          {/* Cognitive Validation Geometry */}
+          <div className="bg-[#111827]/70 border border-gray-900/50 rounded p-3 space-y-2">
+            <span className="text-[8px] font-mono font-bold uppercase text-amber-500 tracking-wider block">
+              Pre-Commit Cognitive Validation Geometry
+            </span>
+            <div className="grid grid-cols-2 gap-2 text-[9px] font-mono leading-none">
+              <div className="p-1.5 bg-gray-900/50 rounded border border-gray-850">
+                <span className="text-gray-500 block uppercase mb-1">Uncertainty State (AETHER)</span>
+                <span className="text-emerald-400 font-bold">ALIGNED & ENCRYPTED</span>
+              </div>
+              <div className="p-1.5 bg-gray-900/50 rounded border border-gray-850">
+                <span className="text-gray-500 block uppercase mb-1">Provenance Anchors (HERMES)</span>
+                <span className="text-blue-400 font-bold">{(selectedPath.traceableFindings || []).length} Anchored Sources</span>
+              </div>
+              <div className="p-1.5 bg-gray-900/50 rounded border border-gray-850">
+                <span className="text-gray-500 block uppercase mb-1">Adopted Posture (SIMON)</span>
+                <span className="text-purple-400 font-bold">{selectedPath.type.toUpperCase()}</span>
+              </div>
+              <div className="p-1.5 bg-gray-900/50 rounded border border-gray-850">
+                <span className="text-gray-500 block uppercase mb-1">Friction Vectors (JEMMA)</span>
+                <span className="text-amber-400 font-bold">FRICTION RECONCILED</span>
+              </div>
+            </div>
+            <div className="text-[8.5px] text-gray-400 leading-normal font-sans pt-1 mt-1 border-t border-gray-900 flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+              <span>Sovereignty Check Integrity Index: <strong className="text-emerald-400 font-mono font-bold">100% {audit?.complianceLevel || "SECURE"}</strong></span>
+            </div>
           </div>
 
           <div className="space-y-2">

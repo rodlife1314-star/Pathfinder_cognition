@@ -178,7 +178,7 @@ export default function App() {
           <div>
             <span className="text-[10px] font-mono text-emerald-400 block tracking-widest font-bold">DELTA SYSTEM</span>
             <h1 className="text-base font-display font-black tracking-wide leading-none text-gray-100 mt-1">
-              COGNITIVE ACQUISITION CONSOLE
+              SOVEREIGN OBSERVER APERTURE
             </h1>
           </div>
         </div>
@@ -267,7 +267,7 @@ export default function App() {
           <span>Hermes Evidence Pipeline: ACTIVE</span>
         </div>
         <div>
-          <span>DELTA COGNITIVE ACQUISITION PROTOCOL v1.3.0 • SECURE NODE</span>
+          <span>DELTA COGNITIVE GEOMETRY FRAMEWORK v1.3.0 • SECURE INTEGRITY LAYER</span>
         </div>
       </footer>
     </div>

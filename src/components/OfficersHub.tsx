@@ -19,33 +19,33 @@ export default function OfficersHub({ accessToken, currentUser }: OfficersHubPro
     {
       name: currentUser.name || "ACTIVE OPERATOR",
       email: currentUser.email || "operator@pathfinder.core",
-      role: "CHIEF COMSAT OPERATOR (COMSAT-1)",
+      role: "CHIEF CONTEXT ARCHITECT & COMSAT OPERATOR",
       avatarUrl: currentUser.photoUrl
     },
     {
-      name: "AETHER NAVIGATION UNIT",
+      name: "AETHER NAVIGATION NODE",
       email: "aether@pathfinder.core",
-      role: "COGNITIVE CONFLICT INTEGRATION UNIT",
+      role: "COGNITIVE UNCERTAINTY MAPPER",
     },
     {
-      name: "HERMES EVIDENCE SCANNER",
+      name: "HERMES EVIDENCE HORIZON",
       email: "hermes@pathfinder.core",
-      role: "DRIVE DATA & TEXT PIPELINE MODULE",
+      role: "REPLICATED KNOWLEDGE PROVIDENCE PIPELINE",
     },
     {
-      name: "SIMON TRAJECTORY MAPPERS",
+      name: "SIMON TRAJECTORY NODAL PLOTTER",
       email: "simon@pathfinder.core",
       role: "TACTICAL ALTERNATING PATHS ENGINE",
     },
     {
-      name: "JEMMA FACTUAL ASSERTOR",
+      name: "JEMMA VERATOR MODULE",
       email: "jemma@pathfinder.core",
-      role: "VERACITY AND TRACEABLE TEXT COMPARATOR",
+      role: "VERACITY AND TRACEABLE CONTRA-MUTATION ASSERTOR",
     },
     {
-      name: "OCTAGON GOVERNANCE AUDITOR",
+      name: "OCTAGON GOVERNANCE SYSTEM",
       email: "octagon@pathfinder.core",
-      role: "OPERATIVE PROTOCOL SOVEREIGNTY COMPLIANCE",
+      role: "OPERATIVE METRIC PROTOCOL COMPLIANCE GATEWAY",
     }
   ];
 
@@ -75,7 +75,7 @@ export default function OfficersHub({ accessToken, currentUser }: OfficersHubPro
         return {
           name,
           email,
-          role: "External Directory Contact",
+          role: "External Grounded Node Overlay",
           avatarUrl
         };
       });
@@ -84,7 +84,7 @@ export default function OfficersHub({ accessToken, currentUser }: OfficersHubPro
       console.error("Failed to load personal contacts:", err);
       if (err.message === "PROHIBITED_SCOPE") {
         setContactsError(
-          "Personal Contacts access is restricted. Scopes list was configured without 'contacts.readonly'. Roster remains synced to Commander Core."
+          "Personal Contacts access is restricted. Scopes list was configured without 'contacts.readonly'. System constellation overlays remain standard."
         );
       } else {
         setContactsError(err.message || "Failed to load external Google connections.");
@@ -117,10 +117,10 @@ export default function OfficersHub({ accessToken, currentUser }: OfficersHubPro
           </div>
           <div>
             <h2 className="text-sm font-display font-semibold text-gray-100 uppercase tracking-widest">
-              Contacts Core Directory
+              Navigation Constellation
             </h2>
             <p className="text-xs text-gray-500 font-mono">
-              [SYSTEM ROSTER & COMMAND DECK PARTNERS]
+              [COGNITIVE DIMENSIONS & COORDINATE VECTOR NODES]
             </p>
           </div>
         </div>
@@ -137,7 +137,7 @@ export default function OfficersHub({ accessToken, currentUser }: OfficersHubPro
           }`}
           id="btn-tab-officers"
         >
-          Officers Core
+          Spectral Nodes
         </button>
         <button
           onClick={() => setActiveTab("personal")}
@@ -148,7 +148,7 @@ export default function OfficersHub({ accessToken, currentUser }: OfficersHubPro
           }`}
           id="btn-tab-google-contacts"
         >
-          Google Connections
+          Google Overlays
         </button>
       </div>
 
@@ -157,7 +157,7 @@ export default function OfficersHub({ accessToken, currentUser }: OfficersHubPro
         <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
         <input
           type="text"
-          placeholder="Filter directory roster..."
+          placeholder="Search nodes and overlays..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full bg-gray-950/80 border border-gray-800 focus:border-purple-500 text-xs rounded-lg pl-9 pr-4 py-2 text-gray-200 placeholder-gray-600 focus:outline-none transition-all duration-200 font-sans"
@@ -233,8 +233,8 @@ export default function OfficersHub({ accessToken, currentUser }: OfficersHubPro
       </div>
 
       <div className="mt-4 pt-3 border-t border-gray-800 flex justify-between items-center text-[9px] font-mono text-gray-500">
-        <span>Roster Size: {filteredRoster.length} listed</span>
-        <span>Secure profile encryption: enabled</span>
+        <span>Vector Cardinality: {filteredRoster.length} tracked</span>
+        <span>Secure spatial encryption: active</span>
       </div>
     </div>
   );

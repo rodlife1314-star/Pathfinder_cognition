@@ -141,7 +141,7 @@ export default function DriveBrowser({ accessToken, onEvidenceUpdated, selectedI
           </div>
           <div>
             <h2 className="text-sm font-display font-semibold text-gray-100 uppercase tracking-widest">
-              Hermes Evidence Selector
+              Hermes Evidence Horizon
             </h2>
             <p className="text-xs text-gray-500 font-mono">
               [SYSTEM STATUS: ONLINE. DIRECT INTEGRATION CONNECTED]
@@ -178,7 +178,7 @@ export default function DriveBrowser({ accessToken, onEvidenceUpdated, selectedI
           className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-display px-4 py-2 rounded-lg transition-all font-semibold cursor-pointer shrink-0"
           id="btn-search-drive"
         >
-          {loading ? "querying..." : "Scan"}
+          {loading ? "scanning..." : "Index"}
         </button>
       </form>
 
@@ -187,7 +187,7 @@ export default function DriveBrowser({ accessToken, onEvidenceUpdated, selectedI
         {loading && files.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-48 space-y-3">
             <Loader2 className="h-8 w-8 text-blue-500 animate-spin" />
-            <p className="text-xs text-gray-500 font-mono">Recalling Drive hierarchy...</p>
+            <p className="text-xs text-gray-500 font-mono">Positioning Evidence Focus...</p>
           </div>
         ) : error ? (
           <div className="bg-red-950/20 border border-red-900/40 rounded-lg p-4 text-center">
@@ -265,7 +265,7 @@ export default function DriveBrowser({ accessToken, onEvidenceUpdated, selectedI
       </div>
 
       <div className="mt-4 pt-4 border-t border-gray-800 flex justify-between items-center text-[10px] font-mono text-gray-500">
-        <span>Pool Evidence Count: {selectedIds.length} file(s)</span>
+        <span>Target Evidence Anchored: {selectedIds.length} file(s)</span>
         <span>Mime restriction: active</span>
       </div>
     </div>
