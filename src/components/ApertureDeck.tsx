@@ -23,6 +23,7 @@ import CrystalBridgeSection from "./CrystalBridgeSection";
 import SovereignDriveDocsBridge from "./SovereignDriveDocsBridge";
 import SubstrateDeltaSection from "./SubstrateDeltaSection";
 import FieldModeConsole from "./FieldModeConsole";
+import JemmaChallenge from "./JemmaChallenge";
 
 import { 
   ShieldCheck, 
@@ -544,6 +545,13 @@ export default function ApertureDeck({
                       />
                     </div>
                   </div>
+
+                  {/* Dynamic Cognitive Jemma Friction Report Console */}
+                  <JemmaChallenge 
+                    selectedPath={selectedPath}
+                    userId={userId}
+                    onDeltaLogged={loadDeltas}
+                  />
                 </div>
               )}
 
