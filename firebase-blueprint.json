@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "collections": {
+    "sessions": {
+      "fields": {
+        "userId": "string",
+        "inquiry": "string",
+        "evidenceDocs": "array",
+        "analysis": "map",
+        "selectedPathwayId": "string",
+        "dispatchedDirective": "string",
+        "operatorSignature": "string",
+        "updatedAt": "timestamp"
+      },
+      "indexes": []
+    },
+    "substrate_deltas": {
+      "fields": {
+        "userId": "string",
+        "timestamp": "timestamp",
+        "observation": "string",
+        "explanation": "string",
+        "reasoning": "string",
+        "learning": "string",
+        "internalizedRule": "string"
+      },
+      "indexes": []
+    }
+  }
+}

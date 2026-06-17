@@ -1,0 +1,6 @@
+{
+  "name": "Delta",
+  "description": "Delta is a cognitive acquisition instrument focused on the gap between information and understanding. It records observations, verifies evidence, surfaces contradictions, and tracks the transformation of external information into internalized operator knowledge. Rather than answering questions, Delta exists to make learning visible, auditable, and repeatable.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
