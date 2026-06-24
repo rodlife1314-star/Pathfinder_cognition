@@ -99,11 +99,13 @@ Read deeper maps of the spatial cognitive architecture inside the `/docs` direct
 2.  **[Detailed Architecture Spec](/docs/architecture.md)**: The full AETHER-to-CRYSTAL BRIDGE pipeline specifications.
 3.  **[Cognitive Vocabulary & Glossary](/docs/vocabulary.md)**: The single source of truth for terms and spatial concepts.
 4.  **[Doctrine & Governance](/docs/doctrine.md)**: The sovereignty rules and verification enforcement algorithms.
-5.  **[Thought Project: Telescope vs. Compass](/docs/telescope_doctrine.md)**: JEMMA's future-facing challenge of technology integrated beneath doctrine.
-6.  **[Deployment Guide](/docs/deployment.md)**: Cloud Run, GCP configuration, and sandbox boundaries.
-7.  **[RAPIDS Hardware Subsystem](/docs/rapids.md)**: High-speed cuDF telemetry parsing details.
-8.  **[SIMON Trajectory Engines](/docs/simon.md)**: Alternative pathway mapping and protocols.
-9.  **[OCTAGON Compliance Auditor](/docs/octagon.md)**: Rule verification, authority levels, and cryptographic dispatch gates.
+5.  **[Geometric Collapse Sequence](/docs/geometric_collapse.md)**: The dynamic transition mechanics between cognitive planes and the Two Laws of Inquest.
+6.  **[Thought Project: Telescope vs. Compass](/docs/telescope_doctrine.md)**: JEMMA's future-facing challenge of technology integrated beneath doctrine.
+7.  **[Lab Report: JEMMA Authority Routing](/docs/jemma_authority_routing.md)**: Physical verification and source-checking of Active Asteroids.
+8.  **[Deployment Guide](/docs/deployment.md)**: Cloud Run, GCP configuration, and sandbox boundaries.
+9.  **[RAPIDS Hardware Subsystem](/docs/rapids.md)**: High-speed cuDF telemetry parsing details.
+10. **[SIMON Trajectory Engines](/docs/simon.md)**: Alternative pathway mapping and protocols.
+11. **[OCTAGON Compliance Auditor](/docs/octagon.md)**: Rule verification, authority levels, and cryptographic dispatch gates.
 
 ---
 

@@ -102,7 +102,7 @@ export default function JemmaSection({ selectedPath, userId, onDeltaLogged }: Je
     setCustomExplanation(`Verified claim against trace nodes. Cognitive drift corrected across ${reflectionTime}s reflection.`);
   };
 
-  // Commit Rule to Cloud Firestore (Sovereign Substrate Delta)
+  // Commit Rule to Cloud Substrate (Sovereign Substrate Delta)
   const handleCommitToLedger = async (nodeIndex: number, finding: FactualFinding) => {
     if (!suggestedRule.trim() || !customExplanation.trim()) {
       alert("Both rule name and explanatory evidence are architectural mandates.");
@@ -121,12 +121,12 @@ export default function JemmaSection({ selectedPath, userId, onDeltaLogged }: Je
       };
 
       await saveSubstrateDelta(delta);
-      alert("Delta rule successfully written to Cloud Firestore Ledger!");
+      alert("Delta rule successfully written to Cloud Substrate Ledger!");
       setShowInternalizeModal(null);
       if (onDeltaLogged) onDeltaLogged();
     } catch (e) {
       console.error("Failed to commit delta:", e);
-      alert("Firestore transaction failed to execute. Proceed with local cache.");
+      alert("Substrate ledger transaction failed to execute. Proceed with local cache.");
     } finally {
       setCommitting(false);
     }
@@ -147,7 +147,7 @@ export default function JemmaSection({ selectedPath, userId, onDeltaLogged }: Je
         </div>
       </div>
 
-      {/* Internalization Live Telemetry HUD */}
+      {/* Internalization Live Sensors HUD */}
       <div className="bg-[#0b101c] border border-gray-800 p-3.5 rounded-lg space-y-3">
         <div className="flex items-center justify-between text-[10px] font-mono">
           <span className="text-gray-400 uppercase tracking-widest flex items-center gap-1">
@@ -333,7 +333,7 @@ export default function JemmaSection({ selectedPath, userId, onDeltaLogged }: Je
                       Write to Sovereign Substrate Delta Ledger
                     </h4>
                     <p className="text-[10px] text-gray-500 mt-1 leading-relaxed">
-                      This formalizes your understanding of this claim. It commits a permanent, un-editable learning rule into the Cloud Firestore audit repository.
+                      This formalizes your understanding of this claim. It commits a permanent, un-editable learning rule into the Cloud Substrate audit repository.
                     </p>
                   </div>
 

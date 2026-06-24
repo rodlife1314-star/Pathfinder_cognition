@@ -119,7 +119,7 @@ Status: WORKLOAD AUTHORIZED & CONTEXT RESOLVED
       {/* Header Block */}
       <div className="flex items-center gap-2 text-amber-400 font-mono text-xs uppercase tracking-wider mb-2">
         <KeyRound className="h-4.5 w-4.5" />
-        <span>VI. CRYSTAL BRIDGE (Authorization & Dispatch)</span>
+        <span>VI. DISPATCH HUB (Authorization & Dispatch)</span>
       </div>
 
       {!selectedPath ? (
@@ -142,7 +142,7 @@ Status: WORKLOAD AUTHORIZED & CONTEXT RESOLVED
 
           <div>
             <span className="text-[8px] font-mono text-gray-500 uppercase tracking-widest block mb-1">
-              Structured Decisional proof Sheet Telemetry
+              Structured Decisional Proof Sheet Ledger
             </span>
             <pre className="w-full bg-gray-950 text-[10px] p-4 rounded-lg text-emerald-300/90 font-mono border border-gray-850 overflow-x-auto max-h-[220px] leading-relaxed">
               {dispatchedDirectiveText}

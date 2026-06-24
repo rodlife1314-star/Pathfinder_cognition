@@ -52,6 +52,15 @@ The supreme, unchanging regulatory layer of Doctrine and Operator Sovereignty. T
 ### The Telescope
 The deep instrumentation and physical hardware layers (e.g., NVIDIA RAPIDS VRAM processors, Gemini API grounding pipelines). The Telescope exists only to magnify reality feed resolution, sitting subordinate beneath the Compass. See `/docs/telescope_doctrine.md` for the JEMMA challenge schema.
 
+### Geometric Collapse Sequence
+The dynamic state transition where a cognitive plane's boundary reaches its structural threshold (the collapse point) and automatically resolves forward into the next larger geometric plane. See `/docs/geometric_collapse.md`.
+
+### Law of Wrong-Chain Silence
+The first law of jurisdictional inquest: A target query must reference only its correct, specialized authority chain, or the node must remain silent instead of generating pseudo-fictional data on invalid catalogs.
+
+### Law of Empty-Pool Assumption Risk
+The second law of jurisdictional inquest: An empty evidence pool means the system possesses no direct physical grounding, and any derived conclusion must be flagged permanently as an unsubstantiated assumption instead of an evidenced fact.
+
 ---
 
 ## Subsystem Anchors

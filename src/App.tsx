@@ -149,7 +149,7 @@ export default function App() {
                     <path fillRule="evenodd" clipRule="evenodd" d="M6.356 14.33a5.9 5.9 0 01-.309-1.897v-1.897c0-.66.115-1.3.309-1.897L2.46 5.672l-.126.06A11.967 11.967 0 000 12c0 2.227.609 4.312 1.668 6.102l4.688-3.772z" fill="#FBBC05" />
                     <path fillRule="evenodd" clipRule="evenodd" d="M12 4.75c1.495 0 2.835.514 3.89 1.521l2.91-2.91C17.034 1.761 14.717 1 12 1 7.828 1 4.18 3.782 2.334 6.898l3.966 3.102c.792-2.386 3.016-4.162 5.644-4.162z" fill="#EA4335" />
                   </svg>
-                  Authorize Google Control Deck
+                  Authorize Sovereign Control Deck
                 </>
               )}
             </button>

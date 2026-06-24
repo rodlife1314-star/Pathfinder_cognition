@@ -171,7 +171,7 @@ export default function SovereignDriveDocsBridge({
     } catch (err: any) {
       console.error("Google Docs write failure:", err);
       alert(
-        "Authorize Error: Google Drive readonly scope prevents creation. Please ensure write access is enabled or download the telemetry report as plain text."
+        "Authorize Error: Workspace Vault readonly scope prevents creation. Please ensure write access is enabled or download the audit report as plain text."
       );
     } finally {
       setExporting(false);
@@ -184,7 +184,7 @@ export default function SovereignDriveDocsBridge({
         <div className="flex items-center gap-2">
           <FolderSync className="h-4.5 w-4.5 text-blue-400" />
           <h3 className="text-xs font-mono font-bold text-gray-200 uppercase tracking-widest">
-            Sovereign Drive Navigator
+            Sovereign Workspace Navigator
           </h3>
         </div>
         <button
@@ -204,7 +204,7 @@ export default function SovereignDriveDocsBridge({
             Active Directive Exporter
           </span>
           <p className="text-gray-400 mb-3 text-[11px] leading-relaxed">
-            Sovereign Audit Loop is active. Package this decision report and upload to your Drive files as a structured Google Doc.
+            Sovereign Audit Loop is active. Package this decision report and upload to your workspace files as a structured document.
           </p>
           
           {exportResult ? (
@@ -237,7 +237,7 @@ export default function SovereignDriveDocsBridge({
               ) : (
                 <>
                   <FileUp className="h-3.5 w-3.5" />
-                  Export Audit to Google Docs
+                  Export Audit to Sovereign Document
                 </>
               )}
             </button>
@@ -249,7 +249,7 @@ export default function SovereignDriveDocsBridge({
       <div className="flex gap-1.5 mb-3">
         <input
           type="text"
-          placeholder="Filter Drive files..."
+          placeholder="Filter workspace files..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="flex-1 bg-gray-950/70 border border-gray-800 focus:border-blue-500 rounded text-xs px-2.5 py-1.5 text-gray-200 outline-none font-sans"
@@ -272,11 +272,11 @@ export default function SovereignDriveDocsBridge({
       ) : error ? (
         <div className="p-3 bg-red-950/10 border border-red-900/30 rounded text-xs text-red-400/90 text-center flex-1 flex flex-col justify-center">
           <AlertCircle className="h-4 w-4 mx-auto mb-1.5 text-red-500" />
-          <span>Access Restricted! Check Google connections.</span>
+          <span>Access Restricted! Check auth connections.</span>
         </div>
       ) : files.length === 0 ? (
         <div className="border border-dashed border-gray-800 rounded p-6 text-center text-[10px] text-gray-500 font-mono flex-1 flex flex-col justify-center">
-          <span>No documents found in Drive namespace.</span>
+          <span>No documents found in workspace namespace.</span>
         </div>
       ) : (
         <div className="flex-1 overflow-y-auto space-y-1.5 pr-0.5">

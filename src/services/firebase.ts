@@ -137,3 +137,52 @@ export const deleteSubstrateDelta = async (deltaId: string): Promise<void> => {
   const docRef = doc(db, "substrate_deltas", deltaId);
   await deleteDoc(docRef);
 };
+
+export interface AuthorityRegistration {
+  id?: string;
+  userId: string;
+  domain: string;
+  name: string;
+  shortName: string;
+  url: string;
+  tier: string;
+  description: string;
+  timestamp?: any;
+}
+
+export const saveAuthorityRegistration = async (reg: AuthorityRegistration): Promise<string> => {
+  const colRef = collection(db, "authority_registrations");
+  const docRef = await addDoc(colRef, {
+    ...reg,
+    timestamp: serverTimestamp()
+  });
+  return docRef.id;
+};
+
+export const getAuthorityRegistrations = async (userId: string): Promise<AuthorityRegistration[]> => {
+  try {
+    const colRef = collection(db, "authority_registrations");
+    const q = query(colRef, where("userId", "==", userId));
+    const snapshot = await getDocs(q);
+    const regs: AuthorityRegistration[] = [];
+    snapshot.forEach((snapDoc) => {
+      const data = snapDoc.data();
+      regs.push({
+        id: snapDoc.id,
+        userId: data.userId,
+        domain: data.domain,
+        name: data.name,
+        shortName: data.shortName,
+        url: data.url,
+        tier: data.tier,
+        description: data.description,
+        timestamp: data.timestamp ? (data.timestamp as Timestamp).toDate() : null
+      });
+    });
+    return regs;
+  } catch (error) {
+    console.error("Error retrieving authority registrations:", error);
+    return [];
+  }
+};
+

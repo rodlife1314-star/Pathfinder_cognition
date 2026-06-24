@@ -64,7 +64,7 @@ export default function OfficersHub({ accessToken, currentUser }: OfficersHubPro
         if (res.status === 403) {
           throw new Error("PROHIBITED_SCOPE");
         }
-        throw new Error(`Google contacts returned status ${res.status}`);
+        throw new Error(`Federated contacts returned status ${res.status}`);
       }
 
       const data = await res.json();
@@ -87,7 +87,7 @@ export default function OfficersHub({ accessToken, currentUser }: OfficersHubPro
           "Personal Contacts access is restricted. Scopes list was configured without 'contacts.readonly'. System constellation overlays remain standard."
         );
       } else {
-        setContactsError(err.message || "Failed to load external Google connections.");
+        setContactsError(err.message || "Failed to load external federated connections.");
       }
     } finally {
       setLoadingContacts(false);
@@ -148,7 +148,7 @@ export default function OfficersHub({ accessToken, currentUser }: OfficersHubPro
           }`}
           id="btn-tab-google-contacts"
         >
-          Google Overlays
+          Federated Overlays
         </button>
       </div>
 

@@ -100,7 +100,7 @@ export default function FieldModeConsole({ userId, operatorName, onDeltaLogged }
   const [secureChecksum, setSecureChecksum] = useState("");
   const [dispatchedRecord, setDispatchedRecord] = useState<any>(null);
 
-  // NVIDIA RAPIDS/TensorRT/DGX Telemetry states
+  // NVIDIA RAPIDS/TensorRT/DGX Sensor states
   const [nvDiagnostics, setNvDiagnostics] = useState<any>(null);
   const [loadingNvDiagnostics, setLoadingNvDiagnostics] = useState(false);
 
@@ -262,12 +262,12 @@ export default function FieldModeConsole({ userId, operatorName, onDeltaLogged }
         internalizedRule: customRule
       };
       await saveSubstrateDelta(delta);
-      alert("Field-derived rule successfully written to Cloud Firestore Ledger!");
+      alert("Field-derived rule successfully written to Cloud Substrate Ledger!");
       setShowCommitModal(null);
       if (onDeltaLogged) onDeltaLogged();
     } catch (e) {
       console.error(e);
-      alert("Firestore commit failed.");
+      alert("Substrate Ledger commit failed.");
     } finally {
       setCommitting(false);
     }
@@ -327,7 +327,7 @@ export default function FieldModeConsole({ userId, operatorName, onDeltaLogged }
         {/* Title */}
         <div>
           <span className="text-[10px] font-mono text-amber-500 block tracking-widest font-extrabold uppercase animate-pulse">
-            ★ IN FIELD RADAR DECK (Telemetry Stream)
+            ★ IN FIELD RADAR DECK (Sensor Stream)
           </span>
           <h2 className="text-sm font-display font-semibold text-gray-100 flex items-center gap-1.5 mt-1">
             <Activity className="h-4.5 w-4.5 text-amber-500" />
@@ -440,7 +440,7 @@ export default function FieldModeConsole({ userId, operatorName, onDeltaLogged }
                 <RefreshCw className={`h-2.5 w-2.5 ${loadingMarketPrices ? "animate-spin text-amber-500" : "text-amber-500"}`} />
                 {loadingMarketPrices ? "Syncing Feed..." : "Sync Live Rates"}
               </button>
-              <div className="mt-0.5">Telemetry Rank: <strong className="text-amber-400">EXASCALE GPU</strong></div>
+              <div className="mt-0.5">Processing Rank: <strong className="text-amber-400">EXASCALE GPU</strong></div>
               <div>Buffer size: <strong className="text-gray-300">30 Ticks</strong></div>
             </div>
           </div>
@@ -470,7 +470,7 @@ export default function FieldModeConsole({ userId, operatorName, onDeltaLogged }
 
         </div>
 
-        {/* Telemetry info cards (NVIDIA RAPIDS/TensorRT/DGX Hardware Diagnostics) */}
+        {/* Sensor info cards (NVIDIA RAPIDS/TensorRT/DGX Hardware Diagnostics) */}
         <div className="md:col-span-4 space-y-3.5" id="nvidia-gpu-diagnostics-deck">
           
           <div className="bg-[#111827]/70 border border-gray-800 p-3 rounded-lg relative overflow-hidden">
@@ -699,7 +699,7 @@ export default function FieldModeConsole({ userId, operatorName, onDeltaLogged }
                               Delta Acquisition Ledger Entry
                             </span>
                             <p className="text-[9px] text-gray-500 mt-0.5">
-                              This commits your verified understanding as an unchangeable doctrine node downstream to Firestore.
+                              This commits your verified understanding as an unchangeable doctrine node downstream to Substrate Ledger.
                             </p>
                           </div>
 
@@ -756,7 +756,7 @@ export default function FieldModeConsole({ userId, operatorName, onDeltaLogged }
             </div>
 
             <p className="text-xs text-gray-400 leading-relaxed font-sans mt-2">
-              All rules developed under Field Telemetry or JEMMA friction testing write directly into the <strong className="text-gray-200">Substrate Learning Delta Ledger</strong>. Below is a secure snapshot profile of your localized delta acquisitions.
+              All rules developed under Field Sensors or JEMMA friction testing write directly into the <strong className="text-gray-200">Substrate Learning Delta Ledger</strong>. Below is a secure snapshot profile of your localized delta acquisitions.
             </p>
 
             <div className="space-y-2 max-h-[160px] overflow-y-auto pr-1 pt-1">
@@ -769,7 +769,7 @@ export default function FieldModeConsole({ userId, operatorName, onDeltaLogged }
                   [Sovereignty Gate - Field Mode] {selectedAsset} : Basis convergence monitoring enforced.
                 </div>
                 <p className="text-gray-400 font-sans mt-1 text-[10px]">
-                  Requires direct cross-reconciliation of spot queues before releasing any aggressive or standard pipeline recommendations back to runtime containers.
+                  Requires direct cross-reconciliation of spot queues before releasing any aggressive or standard pipeline recommendations back to execution containers.
                 </p>
               </div>
             </div>
@@ -787,17 +787,17 @@ export default function FieldModeConsole({ userId, operatorName, onDeltaLogged }
             
             <div className="flex items-center gap-1.5 text-amber-500 text-[10px] uppercase font-bold border-b border-gray-800 pb-2">
               <TermIcon className="h-4 w-4" />
-              <span>Crystal Bridge Gateway - {selectedAsset} Action Dispatch</span>
+              <span>Sovereign Dispatch Gateway - {selectedAsset} Action Dispatch</span>
             </div>
 
             {dispatchStatus === "idle" && (
               <div className="space-y-4">
                 <p className="text-gray-400 text-xs font-sans">
-                  The action layer represents the final dispatch channel. No directive or posture recommendation can be compiled and transferred to the runtime without signed operator authorization.
+                  The action layer represents the final dispatch channel. No directive or posture recommendation can be compiled and transferred to the execution session without signed operator authorization.
                 </p>
 
                 <div className="p-3 bg-yellow-950/10 border border-yellow-900/30 rounded text-[10px] text-yellow-500">
-                  ⚠️ Sovereignty Alert: Dispatch targets container processes directly. Real-time telemetry overrides are irreversible. Check JEMMA friction logs before authorization.
+                  ⚠️ Sovereignty Alert: Dispatch targets container processes directly. Real-time sensor overrides are irreversible. Check JEMMA friction logs before authorization.
                 </div>
 
                 <button

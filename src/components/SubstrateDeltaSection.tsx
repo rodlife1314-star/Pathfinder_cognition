@@ -150,7 +150,7 @@ export default function SubstrateDeltaSection({
               className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs py-2 rounded font-bold cursor-pointer transition"
               id="delta-submit-action"
             >
-              Sign off Learning into Firestore
+              Sign off Learning into Substrate Ledger
             </button>
           </form>
         ) : (

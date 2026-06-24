@@ -16,7 +16,7 @@ export default function DriveBrowser({ accessToken, onEvidenceUpdated, selectedI
   const [activeEvidence, setActiveEvidence] = useState<{ id: string; name: string; content: string }[]>([]);
   const [loadingFileId, setLoadingFileId] = useState<string | null>(null);
 
-  // Fetch file list from Google Drive
+  // Fetch file list from Workspace Vault
   const fetchDriveFiles = async (queryName?: string) => {
     setLoading(true);
     setError(null);
@@ -36,14 +36,14 @@ export default function DriveBrowser({ accessToken, onEvidenceUpdated, selectedI
 
       if (!res.ok) {
         const errData = await res.json();
-        throw new Error(errData?.error?.message || `Google Drive returned status ${res.status}`);
+        throw new Error(errData?.error?.message || `Workspace Vault returned status ${res.status}`);
       }
 
       const data = await res.json();
       setFiles(data.files || []);
     } catch (err: any) {
       console.error("Error fetching files:", err);
-      setError(err?.message || "Failed to retrieve documents from Google Drive.");
+      setError(err?.message || "Failed to retrieve documents from Workspace Vault.");
     } finally {
       setLoading(false);
     }
@@ -152,7 +152,7 @@ export default function DriveBrowser({ accessToken, onEvidenceUpdated, selectedI
           onClick={() => fetchDriveFiles(searchTerm)}
           disabled={loading}
           className="text-gray-400 hover:text-white p-1.5 hover:bg-gray-800 rounded-lg transition-all duration-200"
-          title="Recall Drive Catalog"
+          title="Recall Vault Catalog"
           id="btn-refresh-drive"
         >
           <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
@@ -200,7 +200,7 @@ export default function DriveBrowser({ accessToken, onEvidenceUpdated, selectedI
             <FileText className="h-8 w-8 text-gray-600 mb-2" />
             <p className="text-xs">No suitable documents found</p>
             <p className="text-[10px] text-gray-600 mt-1 max-w-[200px]">
-              Only Google Docs (application/vnd.google-apps.document) or .txt files can be ingested.
+              Only Sovereign Documents (document types) or .txt files can be ingested.
             </p>
           </div>
         ) : (

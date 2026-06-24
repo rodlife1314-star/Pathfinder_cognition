@@ -145,7 +145,7 @@ export default function JemmaChallenge({ selectedPath, userId, onDeltaLogged }: 
     setPatchExplanation(`Operator manually verified other trace indices. Force-mitigating friction loop on claim: "${item.targetClaim.slice(0, 45)}..."`);
   };
 
-  // Commit dynamic friction override to Cloud Firestore Ledger
+  // Commit dynamic friction override to Cloud Substrate Ledger
   const handleCommitPatch = async () => {
     if (!selectedPath || !selectedFriction) return;
     if (!patchName.trim() || !patchExplanation.trim()) {
@@ -165,7 +165,7 @@ export default function JemmaChallenge({ selectedPath, userId, onDeltaLogged }: 
       };
 
       await saveSubstrateDelta(delta);
-      alert("Substrate learning patch written to permanent Cloud Firestore ledger!");
+      alert("Substrate learning patch written to permanent Cloud Substrate ledger!");
       
       // Update local state to mark solved
       setFrictions(prev => prev.map(f => f.id === selectedFriction.id ? { ...f, solved: true } : f));

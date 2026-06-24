@@ -1,3 +1,5 @@
+import { AetherRequirementPacket } from "../types";
+
 export interface DomainDefinition {
   id: string;
   name: string;
@@ -5,6 +7,8 @@ export interface DomainDefinition {
   authorities: { name: string; desc: string }[];
   sources: string[];
   status: "live" | "standby";
+  neededEvidence: string[];
+  blockedAuthorities: string[];
 }
 
 export const DOMAIN_REGISTRY: Record<string, DomainDefinition> = {
@@ -19,7 +23,18 @@ export const DOMAIN_REGISTRY: Record<string, DomainDefinition> = {
       { name: "FCA", desc: "UK Financial Conduct Authority; conduct regulator for financial services." },
       { name: "Coinbase API", desc: "Industry-standard spot cryptocurrency trading clearinghouse and live feed." }
     ],
-    sources: ["Coinbase WebSocket / REST", "Yahoo Finance GC=F, SI=F, ^NDX, ^DJI", "CME DataMine Open Interest models"]
+    sources: ["Coinbase WebSocket / REST", "Yahoo Finance GC=F, SI=F, ^NDX, ^DJI", "CME DataMine Open Interest models"],
+    neededEvidence: [
+      "Coinbase real-time spot price metrics",
+      "CME Option Open Interest files",
+      "Order book bid-ask depth matrix"
+    ],
+    blockedAuthorities: [
+      "Reddit WallStreetBets posts",
+      "Unverified social media finance handles",
+      "Simbad astronomical tables",
+      "Deep-sky galaxy catalogs"
+    ]
   },
   medicine: {
     id: "medicine",
@@ -33,7 +48,17 @@ export const DOMAIN_REGISTRY: Record<string, DomainDefinition> = {
       { name: "WHO", desc: "World Health Organization; international standard ICD codes & health classifications." },
       { name: "SNOMED CT", desc: "International standard for codeable medical terms and clinical records ontology." }
     ],
-    sources: ["ClinicalTrials.gov API v2 (daily)", "Cochrane Library Systematic Reviews database"]
+    sources: ["ClinicalTrials.gov API v2 (daily)", "Cochrane Library Systematic Reviews database"],
+    neededEvidence: [
+      "Verified double-blind clinical trial metadata",
+      "FDA approval clearance summaries & specific indications lists",
+      "NICE recommendations & evidence-based guideline codes"
+    ],
+    blockedAuthorities: [
+      "WebMD public comment forums",
+      "Wikipedia consumer-grade health wiki pages",
+      "Coinbase cryptocurrency spot markets"
+    ]
   },
   law: {
     id: "law",
@@ -45,7 +70,17 @@ export const DOMAIN_REGISTRY: Record<string, DomainDefinition> = {
       { name: "Law Society", desc: "UK regulatory body representing solicitors in England & Wales." },
       { name: "Cornell LII / Black's Law", desc: "Industry-standard references for US federal/state statutory law and authoritative legal definitions." }
     ],
-    sources: ["BAILII (British and Irish Case Law Database; daily HTML scrapers)"]
+    sources: ["BAILII (British and Irish Case Law Database; daily HTML scrapers)"],
+    neededEvidence: [
+      "BAILII certified case law judgements",
+      "HMCTS tribunal records/dockets",
+      "United States statutory code segments and session laws"
+    ],
+    blockedAuthorities: [
+      "Reddit comments & social media opinions",
+      "Personal legal blogs or opinion articles",
+      "NASA JPL Solar System orbital elements"
+    ]
   },
   technology: {
     id: "technology",
@@ -58,19 +93,45 @@ export const DOMAIN_REGISTRY: Record<string, DomainDefinition> = {
       { name: "NIST", desc: "US National Institute of Standards and Technology; physical measurement and encryption root." },
       { name: "ACM / IEEE", desc: "International computing standards societies and electrical, electronics engineering standards." }
     ],
-    sources: ["IETF RFC Index REST archive", "NIST National Vulnerability Database (NVD)", "W3C Standards Catalog"]
+    sources: ["IETF RFC Index REST archive", "NIST National Vulnerability Database (NVD)", "W3C Standards Catalog"],
+    neededEvidence: [
+      "IETF RFC network standard texts",
+      "NIST CVSS vulnerability score database records",
+      "W3C standard WCAG accessibility checklist parameters"
+    ],
+    blockedAuthorities: [
+      "StackOverflow unsourced community snippets",
+      "Personal medium/dev.to development blogs",
+      "Coinbase financial transactions"
+    ]
   },
   astrophysics: {
     id: "astrophysics",
-    name: "Astrophysics",
+    name: "Astrophysics & Small Body Dynamics",
     status: "standby",
-    lenses: ["Photometric", "Spectral", "Orbital", "Temporal", "Energetic", "Spatial", "Cosmological", "Instrument Cal.", "Catalog", "Prediction"],
+    lenses: ["Photometric", "Spectral", "Orbital", "Temporal", "Energetic", "Spatial", "Tisserand Parameter (T_J)", "PSF/FWHM Profiles", "Catalog", "Prediction"],
     authorities: [
+      { name: "IAU Minor Planet Center (MPC)", desc: "The official international clearinghouse for physical assets, coordinates, and positions of asteroids, comets, and outer satellites." },
+      { name: "NASA JPL Solar System Dynamics (SSD) / SBDB", desc: "NASA planetary orbit determination, orbit prediction, Keplerian elements, and Small-Body Database (SBDB) values." },
       { name: "NASA / ESA", desc: "Primary joint space observation authorities; Hubble, JWST, stellar telemetry data streams." },
-      { name: "IAU", desc: "International Astronomical Union; official naming, classification, and coordinate authorities." },
-      { name: "NASA ADS", desc: "Harvard-hosted Astrophysics Data System; primary metadata registry of published astrophysics papers." }
+      { name: "NASA ADS", desc: "Harvard-hosted Astrophysics Data System; primary metadata registry of published astrophysics and planetary science papers." }
     ],
-    sources: ["Space-Track TLEs (real-time)", "MAST Hubble-JWST catalog", "Simbad astronomical database TAP", "VizieR tables TAP"]
+    sources: [
+      "JPL Small-Body Database (SBDB) orbit tables",
+      "Minor Planet Center (MPC) observation database",
+      "Tisserand Parameter (T_J) dynamic orbit categorization indices",
+      "Simbad astronomical database TAP & VizieR catalog lines"
+    ],
+    neededEvidence: [
+      "IAU MPC physical astrometry orbital coordinates",
+      "NASA JPL SBDB Keplerian orbital elements dossier",
+      "FITS image profile optical FWHM estimations"
+    ],
+    blockedAuthorities: [
+      "Simbad astronomical database generic catalog TAP tables (non-specialized)",
+      "NED galaxy redshift catalogs",
+      "Amateur astronomy visual reports"
+    ]
   },
   food: {
     id: "food",
@@ -82,7 +143,17 @@ export const DOMAIN_REGISTRY: Record<string, DomainDefinition> = {
       { name: "FDA Food Safety", desc: "Regulatory oversight of safe critical thermal points and preservation thresholds." },
       { name: " Michelin Guide", desc: "In-field criteria for technical mastery, ingredient purity, and baseline quality evaluation." }
     ],
-    sources: ["USDA FoodData Central API", "Culina Historical Archive"]
+    sources: ["USDA FoodData Central API", "Culina Historical Archive"],
+    neededEvidence: [
+      "USDA FoodData Central raw chemical composition metrics",
+      "classic Escoffier workflow documentation",
+      "FDA thermal hazard control limit tables"
+    ],
+    blockedAuthorities: [
+      "Unvetted online cooking blogs",
+      "Social media culinary influencers",
+      "CME open interest derivative sheets"
+    ]
   },
   earth: {
     id: "earth",
@@ -94,7 +165,17 @@ export const DOMAIN_REGISTRY: Record<string, DomainDefinition> = {
       { name: "NOAA", desc: "US National Oceanic and Atmospheric Administration; collects greenhouse gas and weather metrics." },
       { name: "Copernicus Service", desc: "EU earth observation platform tracking ocean heat levels, sea levels and land cover." }
     ],
-    sources: ["NOAA Carbon Cycle Greenhouse Gas (CCGG) real-time feed", "Copernicus ERA5 reanalysis pipeline", "Met Office Hadley Centre database"]
+    sources: ["NOAA Carbon Cycle Greenhouse Gas (CCGG) real-time feed", "Copernicus ERA5 reanalysis pipeline", "Met Office Hadley Centre database"],
+    neededEvidence: [
+      "NOAA observatory raw greenhouse gas metric readings",
+      "Copernicus ocean temperature anomaly matrices",
+      "IPCC AR6 working group output projections"
+    ],
+    blockedAuthorities: [
+      "Non-peer-reviewed climate forums",
+      "Corporate environmental policy blogs",
+      "Coinbase websocket exchanges"
+    ]
   }
 };
 
@@ -175,4 +256,46 @@ export function computeCoverageMetric(domainId: string, inquiry: string): number
   const basePercent = def.status === "live" ? 82 : 65;
   const coveragePercent = Math.min(100, basePercent + (matchCount * 4));
   return Math.round(coveragePercent);
+}
+
+export function generateAetherRequirement(inquiry: string): AetherRequirementPacket {
+  const domain = classifyInquiryDomain(inquiry);
+  
+  // Extract custom uncertainty terms based on inquiry or default
+  let uncertainty = "Morphological ambiguity vs tracking artifacts";
+  const normalized = inquiry.toLowerCase();
+  
+  if (domain.id === "astrophysics") {
+    if (normalized.includes("asteroid") || normalized.includes("comet") || normalized.includes("active")) {
+      uncertainty = "Cometary activity flare detection vs overlapping background star fields";
+    } else {
+      uncertainty = "Orbital parameter covariance vs tracking sensor noise";
+    }
+  } else if (domain.id === "finance") {
+    if (normalized.includes("btc") || normalized.includes("bitcoin") || normalized.includes("crypto")) {
+      uncertainty = "Spot liquidation volatility cascades vs real volume depth backing";
+    } else {
+      uncertainty = "Market asset sentiment dispersion vs macroeconomic rate adjustments";
+    }
+  } else if (domain.id === "medicine") {
+    uncertainty = "Efficacy signal anomalies vs baseline patient demographic noise";
+  } else if (domain.id === "law") {
+    uncertainty = "Precedent admissibility limits vs jurisdiction overlaps";
+  } else if (domain.id === "technology") {
+    uncertainty = "System resource limits vs runtime platform overhead";
+  } else if (domain.id === "food") {
+    uncertainty = "Classic preparation thermodynamics vs modern raw material variance";
+  } else if (domain.id === "earth") {
+    uncertainty = "Atmospheric feedback loops vs carbon sensor drift";
+  }
+
+  return {
+    domainId: domain.id,
+    domainName: domain.name,
+    uncertainty,
+    neededEvidence: domain.neededEvidence,
+    authorityChainNeeded: domain.authorities.map(a => a.name),
+    blockedAuthorities: domain.blockedAuthorities,
+    status: "READY_FOR_RAPIDS"
+  };
 }

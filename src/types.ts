@@ -54,3 +54,14 @@ export interface ContactInfo {
   role: string;
   avatarUrl?: string;
 }
+
+export interface AetherRequirementPacket {
+  domainId: string;
+  domainName: string;
+  uncertainty: string;
+  neededEvidence: string[];
+  authorityChainNeeded: string[];
+  blockedAuthorities: string[];
+  status: "PENDING" | "READY_FOR_RAPIDS" | "DISPATCHED_TO_HERMES" | "INGESTED";
+}
+
